@@ -27,6 +27,10 @@ var dataTemplate = {teams: [], results: [[]], name: "", date: "", notes: ""}
           alert("The amount of people must be a power of 2.");
           return;
         }
+        if (amount > 64){
+          alert("The maximum allowed number of people in a tournament is 64 ");
+          return;
+        }
         console.log("Creating " + amount + " input boxes"); //<label class="inline-label">Name</label><label class="inline-label">Seed</label>
         document.getElementById('bracket_creator').innerHTML += (`<div id="names_list"></div>`);
     
@@ -93,23 +97,21 @@ function loadBracket(random){
         data.notes = $("#tournament_notes").val();
         setBracketData(data);
     }
-    //window.location.href= "#finalize_event";
-
     $("#finalize_event").html(`<div class="w3-center"><button class="w3-button w3-black" onclick="pushTournamentToFirebase(data)">Create Event</button></div>`);
   }
 
   function pushTournamentToFirebase(json_data){
     var data = JSON.stringify(json_data);
-    console.log(data);
-    firebase.database().ref("/tournaments").push(data);
+    //child('users/' + user_info.id)
+    console.log(firebase.auth().currentUser.uid);
+    firebase.database().ref("/Users").child(firebase.auth().currentUser.uid).child("/tournaments").push(data).then(function() {
+      window.location = "./";
+    });
     alert("Successfully Created Event!");
-    //window.location.reload();
-    //window.location.href = "/";
-
+    
   }
 
   function setResults(data, amount, random){
-    console.log("ARGH ME MATEY " + amount);
     if ( Number.isNaN(amount)) return;
 
     for (var k1 = 0; k1 < Math.ceil(getBaseLog(2, amount)); k1++){

@@ -15,10 +15,11 @@ function create_cards(c,  name, date, img){
 var tourney_data = {};
 
 function get_current_events(){
+
     $.ajax({
         async: false,
         method: "GET",
-        url: "https://mattgwin-tournament-builder-default-rtdb.firebaseio.com/.json",
+        url: "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + firebase.auth().currentUser.uid + "/tournaments",
         contentType: "application/json",
         success: (data) => {tourney_data = {...data}}
     })
@@ -29,15 +30,11 @@ function get_current_events(){
 function load_current_events(){
 
     firebase.database().ref("/").on("value", ss=>{
-        //console.log(ss);
         document.querySelector(".cards-list").innerHTML = ss;
       });
 }
 
-get_current_events();
-
-console.log("Deez Nuts");
-console.log(tourney_data.tournaments);
+//get_current_events();
 
 
 function load_cards_from_tourney(data){
@@ -52,17 +49,8 @@ function load_cards_from_tourney(data){
         $(".cards-list").append(create_cards("card " + current_k, current_tourney.name, current_tourney.date, null))
         console.log(current_tourney);
     }
-    /*.forEach(element => {
-        console.log(element);
-    });*/
-
+    
 }
 
 load_cards_from_tourney(tourney_data);
 
-
-//load_current_events();
-
-/*for (var i = 0; i < 5; i++){
-    $(".cards-list").append(create_cards("card " + i, "deez nuts", null, null));
-}*/

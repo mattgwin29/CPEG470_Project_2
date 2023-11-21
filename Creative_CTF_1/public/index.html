@@ -16,26 +16,8 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
 
 
-    <!--<script type="module">
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js'
-  
-      // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
-      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js'
-  
-      // Add Firebase products that you want to use
-      import { getAuth } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js'
-      import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js'
-    </script> -->
 
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-    <!-- <script defer src="./js/bracket_template.js"></script> !-->
-    <!-- <script defer src="https://code.jquery.com/jquery-3.3.1.min.js" 
-    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" 
-    crossorigin="anonymous"></script> -->
-
-   <!--<script defer src="./js/jquery.gracket.min.js"></script>--> 
-    <!--<script defer src="./js/jquery.gracket.js"></script>-->
-    <!--<script defer src="./js/gracket.js"></script>-->
 
     <script defer src="./js/cards.js"></script>
     <script defer src="./js/extra_bracket.js"></script>
@@ -48,9 +30,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="./css/cards.css">
     <link rel="stylesheet" href="./css/style.css">
-    <!--<link rel="stylesheet" href="./css/gracket.css">-->
     <link rel="stylesheet" href="./css/jquery.bracket.min.css">
-    <!-- <link rel="stylesheet" href="./css/bracket.css"> !-->
 
 
     
@@ -59,14 +39,12 @@
           height: 100%;
           font-family: "Inconsolata", sans-serif;
         }
-
         .bgimg {
           background-position: center;
           background-size: cover;
-          background-image: url("./assets/pngtree-crystal-background-pink-color-image_697355.jpg");
+          background-image: url("./assets/samuel-zeller-medium-b832fe04.jpg");
           min-height: 75%;
         }
-
         .menu {
           display: none;
         }
@@ -81,12 +59,11 @@
       </div>
 
       <div id="tourney_title" class="w3-display-middle w3-center">
-        <span class="w3-text-white" style="font-size:90px">Project<br>2</span>
+        <span class="w3-text-white" style="font-size:90px">Custom Web CTF</span>
+        <span class="w3-text-white" style="font-size:90px">Bootlegged</span>
 
         <div id="loginInfo"></div>
-        <!-- <button id="create-tournament" onclick="generateTemplate('test')">Create Tournament</button>  !-->   
-        <!--<button id="create-tournament-button" onclick="openCreateEventMenu()">Create Tournament</button> -->
-        <button id="create-tournament-button" onclick="openCreateEventMenu()">Custom CTF</button>    
+        <button id="create-tournament-button" onclick="openCreateEventMenu()">Create Tournament</button>    
       </div>
 
       <div class="profile-card"></div>
@@ -99,13 +76,13 @@
     <div class="w3-top">
       <div class="w3-row w3-padding w3-black">
           <div class="w3-col s3">
-              <a href="https://mattgwin-tournament-builder.web.app/" class="w3-button w3-block w3-black">HOME</a>
+              <a href="./" class="w3-button w3-block w3-black">HOME</a>
           </div>
           <div class="w3-col s3">
-            <a class="w3-button w3-block w3-black" onclick="renderProfile(); window.location.href='/#profile'">Profile</a>
+            <a class="w3-button w3-block w3-black" onclick="renderProfile(); window.location.href='./#profile'">Profile</a>
           </div>
           <div class="w3-col s3">
-            <a href="https://mattgwin-tournament-builder.web.app/#currevent" v-reload  class="w3-button w3-block w3-black">Current Events</a>
+            <a href="./#currevent" v-reload  class="w3-button w3-block w3-black">Current Events</a>
           </div>
         </div>
       </div>
@@ -134,9 +111,7 @@
     <div id="bracket_holder">
     </div>
     <div id="finalize_event"></div>
-    <!--<div class="my_gracket"></div>-->
 
-    <!--</div>-->
     <script>
       // Tabbed Menu
       function openMenu(evt, menuName) {
