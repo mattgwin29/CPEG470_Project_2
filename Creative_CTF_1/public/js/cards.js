@@ -14,14 +14,18 @@ function create_cards(c,  name, date, img){
 
 var tourney_data = {};
 
-function get_current_events(){
+function get_current_events(uid){
+
+    console.log("UID -> " + uid);
+    url = "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + uid + "/.json";
+    console.log("Querying " + url);
 
     $.ajax({
         async: false,
         method: "GET",
-        url: "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + firebase.auth().currentUser.uid + "/tournaments",
+        url: "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + uid + "/.json",
         contentType: "application/json",
-        success: (data) => {tourney_data = {...data}}
+        success: (data) => {load_cards_from_tourney(data)}
     })
 }
 
@@ -34,11 +38,11 @@ function load_current_events(){
       });
 }
 
-//get_current_events();
-
-
 function load_cards_from_tourney(data){
+    console.log("*****************************");
+    console.log(data.tournaments);
     var keys = Object.keys(data.tournaments);
+    console.log(keys);
 
     for (var i = 0; i < keys.length; i++){
         let current_k = keys[i];
@@ -52,5 +56,4 @@ function load_cards_from_tourney(data){
     
 }
 
-load_cards_from_tourney(tourney_data);
 
