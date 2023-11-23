@@ -16,9 +16,9 @@ var tourney_data = {};
 
 function get_current_events(uid){
 
-    console.log("UID -> " + uid);
-    url = "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + uid + "/.json";
-    console.log("Querying " + url);
+    //console.log("UID -> " + uid);
+    //url = "https://mattgwin-web-ctf-default-rtdb.firebaseio.com/Users/"  + uid + "/.json";
+    //console.log("Querying " + url);
 
     $.ajax({
         async: false,
