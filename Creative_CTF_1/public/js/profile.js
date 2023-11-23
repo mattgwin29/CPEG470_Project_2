@@ -23,8 +23,6 @@ let startApp = (user)=>{
   firebase.auth().onAuthStateChanged(user => {
     if (!!user){
       startApp(user);
-      console.log("Starting App");
-      console.log(user.uid);
       get_current_events(user.uid);
     } else {
       renderLogin();
