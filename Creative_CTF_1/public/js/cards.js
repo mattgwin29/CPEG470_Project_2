@@ -39,19 +39,11 @@ function load_current_events(){
 }
 
 function load_cards_from_tourney(data){
-    console.log("*****************************");
-    console.log(data.tournaments);
     var keys = Object.keys(data.tournaments);
-    console.log(keys);
-
     for (var i = 0; i < keys.length; i++){
         let current_k = keys[i];
         let current_tourney = JSON.parse(data.tournaments[current_k]);
-        console.log("*******");
-        console.log(current_tourney.name);
-        console.log(current_tourney.date);
         $(".cards-list").append(create_cards("card " + current_k, current_tourney.name, current_tourney.date, null))
-        console.log(current_tourney);
     }
     
 }
