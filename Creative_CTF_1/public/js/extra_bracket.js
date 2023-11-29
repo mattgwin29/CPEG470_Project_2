@@ -102,7 +102,6 @@ function loadBracket(random){
 
   function pushTournamentToFirebase(json_data){
     var data = JSON.stringify(json_data);
-    //child('users/' + user_info.id)
     console.log(firebase.auth().currentUser.uid);
     firebase.database().ref("/Users").child(firebase.auth().currentUser.uid).child("/tournaments").push(data).then(function() {
       window.location = "./";
