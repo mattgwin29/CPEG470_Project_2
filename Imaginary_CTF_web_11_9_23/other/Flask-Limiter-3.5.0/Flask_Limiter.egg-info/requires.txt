@@ -1,0 +1,14 @@
+limits>=2.8
+Flask>=2
+ordered-set<5,>4
+rich<14,>=12
+typing_extensions>=4
+
+[memcached]
+limits[memcached]
+
+[mongodb]
+limits[mongodb]
+
+[redis]
+limits[redis]
