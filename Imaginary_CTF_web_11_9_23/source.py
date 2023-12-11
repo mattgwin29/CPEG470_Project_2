@@ -57,8 +57,7 @@ def report():
                 allowed += 'hs:pi/\'t=;'
                 msg += " (with guard bribed!)"
             else:
-                return f"Your bribe attempt fails. The accepted number was 
-{number}"
+                return f"Your bribe attempt fails. The accepted number was {number}"
         except:
             return "You tripped! Try again"
 

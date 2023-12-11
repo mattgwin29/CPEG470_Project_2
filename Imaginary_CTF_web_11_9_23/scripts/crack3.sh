@@ -19,6 +19,8 @@ if __name__ == "__main__":
 	for i in range(624):
 		print("Iteration " + str(i))
 		result = session.post('http://150.136.137.215/report',headers=headers,data=payload,verify=False)
+		#result = session.post('http://127.0.0.1:5000/report',headers=headers,data=payload,verify=False)
+
 		cont = str(result.content)
 		number = cont[cont.find("was")+len("was")+1:len(cont)-1].strip()
 		print(number)
